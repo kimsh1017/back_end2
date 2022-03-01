@@ -22,7 +22,7 @@ const changeImage = function(image_id) {
 }
 
 function changeImage1(){
-    changeImage("/static/image/everyone_1.png")
+    changeImage("/static/image/test_1.png")
     image_button1.classList.toggle('active');
 
     if (active_img == 2){
@@ -36,7 +36,7 @@ function changeImage1(){
 }
 
 function changeImage2() {
-    changeImage("/static/image/everyone_2.png")
+    changeImage("/static/image/test_2.png")
     image_button2.classList.toggle('active');
 
     if (active_img == 1){
@@ -51,7 +51,7 @@ function changeImage2() {
 
 
 function changeImage3() {
-    changeImage("/static/image/everyone_3.png")
+    changeImage("/static/image/test_3.png")
     image_button3.classList.toggle('active');
 
     if (active_img == 1){
