@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/updateStyle.css' %}">
+    <script src="https://kit.fontawesome.com/411ab0eefd.js" crossorigin="anonymous"></script>
+    <script src="{% static "header.js" %}" defer></script>
+
+</head>
+<body>
+    <!-- header -->
+    <section class="header">
+        <div class="logoAndTitle">
+            <a href="/mysite/"><img src="{% static 'image/logo.png' %}" alt="#"></a>
+            <span class="title">Gosumdochi Company</span>
+            <button class="bar"><i class="fas fa-bars"></i></button>
+        </div>
+        <ul class="menu">
+            <li>회사소개</li>
+            <li>채용안내</li>
+            <li>직원전용</li>
+            <li>공지사항</li>
+            <li>고객센터</li>
+        </ul>
+    </section>
+
+    <!-- notice information -->
+
+    <section class="info">   
+        <h1>{{ notice.subject }}</h1>
+        <div>
+            {{ notice.content }}
+        </div>
+        <div>
+            {{ notice.create_date }}
+        </div>
+        <!--<div>{{ notice.password }}</div> 비밀번호 보이게 하기-->
+    </section>
+    <section class="update">
+        <form action="update_notice/" method="post">
+            {% csrf_token %}
+            <p><input type="text" placeholder="subject" name = "subject"></p>
+            <p><textarea name="content" placeholder="content"></textarea></p>
+            <p><input type="text" placeholder="writer" name = "writer"></p>
+            <p><input type="text" placeholder="password" name = "password"></p>
+            <p><input type="submit" name="update" value="수정"></p>
+        </form>
+        
+        <form action="delete/" method="post">
+            {% csrf_token %}
+            <p><input type="submit" name="delete" value="삭제"></p>
+        </form>
+    </section>
+
+</body>
+</html>

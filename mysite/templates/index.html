@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/411ab0eefd.js" crossorigin="anonymous"></script>
+    <script src="{% static "main.js" %}" defer></script>
+</head>
+<body>
+    <!-- header -->
+    <section class="header">
+        <div class="logoAndTitle">
+            <a href="/mysite/"><img src="{% static 'image/logo.png' %}" alt="#"></a>
+            <span class="title">Gosumdochi Company</span>
+            <button class="bar"><i class="fas fa-bars"></i></button>
+        </div>
+        <ul class="menu">
+            <li>회사소개</li>
+            <li>채용안내</li>
+            <li>직원전용</li>
+            <li>공지사항</li>
+            <li>고객센터</li>
+        </ul>
+    </section>
+
+
+    <!-- main_image -->
+    <section class="main_image">
+        <img src="{% static 'image/everyone_1.png' %}" alt="#" class="moving_image">
+        <div class="text">
+            <span class="text1">포브스 선정 세계에서 가장 유망한 스타트업 1위</span>
+            <span class="text2">고슴도치 컴퍼니</span>
+        </div>
+        <div class="image_bar">
+            <button class="first"></button>
+            <button class="second"></button>
+            <button class="third"></button>
+        </div>
+    </section>
+
+
+    <div class="mainAndNotice">
+        <!-- main_container-->
+        <section class="main_container">
+            <span class="title">자회사</span>
+            <div class = "other_company">
+                <ul class="other_company_list">
+                    <li>
+                        <i class="fas fa-gamepad"></i>
+                        <span class="title">고슴도치 게임즈</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-cocktail"></i>
+                        <span class="title">고슴도치 바</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-paint-brush"></i>
+                        <span class="title">고슴도치 코믹스</span>
+                    </li>
+                </ul>
+                <ul class="other_company_list">
+                    <li>
+                        <i class="fas fa-music"></i>
+                        <span class="title2">고슴도치</span>
+                        <span class="title2">엔터테이먼트</span>
+                    </li>
+                    <li>
+                        <i class="fab fa-youtube"></i>
+                        <span class="title">고슴도치 tv</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-solid fa-bed"></i>
+                        <span class="title">고슴도치 호텔</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- notice -->
+        <setcion class="notice">
+            <span class="title"><a href="readNotice/">공지사항</a></span>
+            <div class="bar">
+                <button>전체</button>
+                <button>직원</button>
+                <button>채용공고</button>
+                <button>
+                    <div>행사 및</div>
+                    <div>공모전</div>
+                </button>
+                <button>+</button>
+            </div>
+            <!-- notice list-->
+            <div class="notice_list">
+                {% if notice_list%}
+                    {% for notice in notice_list%}
+                        <div class="TitleAndDate">
+                            <span class="title"><a href="readNotice/{{notice.id}}/">{{notice.subject}}</a></span>
+                            <span class="date">{{notice.create_date}}</span>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <span class="title"> 공지가 없습니다 </span>
+                {% endif %}
+            </div>
+            <!--
+                <div class="notice_list">
+                <div class="TitleAndDate">
+                    <span class="title">민현 이름 두 글자</span>
+                    <span class="date">2002.12.24</span>
+                </div>
+                <div class="TitleAndDate">
+                    <span class="title">|긴급| 황명하 아웃백과 노예 계약 발표</span>
+                    <span class="date">2022.01.05</span>
+                </div>
+                <div class="TitleAndDate">
+                    <span class="title">민현 토마토</span>
+                    <span class="date">2021.12.24</span>
+                </div>
+                <div class="TitleAndDate">
+                    <span class="title">이승재 엄지 두꺼움</span>
+                    <span class="date">2022.01.05</span>
+                </div>
+                <div class="TitleAndDate">
+                    <span class="title">동화는 그냥 똥이야</span>
+                    <span class="date">2022.01.04</span>
+                </div>
+            </div>
+            -->
+        </setcion>
+    </div>
+</html>
