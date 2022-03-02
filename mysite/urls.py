@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.index),
     path('readNotice/', views.readNotice),
     path('readNotice/<int:notice_id>/', views.detail),
+    path('readNotice/create/', views.create),
     path('createNotice/', views.createNotice),
     path('readNotice/<int:notice_id>/update/delete/', views.delete),
     path('readNotice/<int:notice_id>/update/', views.update),

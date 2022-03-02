@@ -73,11 +73,23 @@ button:focus {
   flex-direction: column;
   margin: var(--padding);
 }
+.info a {
+  text-decoration: none;
+  color: var(--black-color);
+  margin: var(--padding) 0;
+}
+
+.info .subject {
+  font-size: var(--font-large);
+}
 
 .info .content {
   margin: var(--padding) 0;
+  min-height: 400px;
   height: 100%;
 }
+
+/* delete And Update */
 
 .deleteAndUpdate {
   margin: var(--padding);

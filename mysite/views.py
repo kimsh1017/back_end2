@@ -14,7 +14,28 @@ def index(request):
 
 def readNotice(request):
     notice_list = Notice.objects.order_by('-create_date')
-    context = {'notice_list': notice_list}
+    page = request.GET.get('page', '1')
+    paginated_by = 10
+
+    if len(notice_list) % paginated_by == 0:
+        page_len = len(notice_list) // paginated_by
+    else:
+        page_len = (len(notice_list) // paginated_by) + 1
+
+    # 페이징 처리
+    total_page = list(range(1, page_len + 1))
+
+    start_number = len(notice_list) - (paginated_by * (int(page) - 1))
+
+    start_index = paginated_by * (int(page)-1)
+    end_index = paginated_by * int(page)
+    notice_list = notice_list[start_index:end_index]
+
+    for notice in notice_list:
+        notice.page_number = start_number
+        start_number -= 1
+
+    context = {'notice_list': notice_list, 'total_page': total_page, }
     return render(request, 'readNotice.html', context)
 
 
@@ -22,6 +43,10 @@ def detail(request, notice_id):
     notice = Notice.objects.get(id=notice_id)
     context = {'notice': notice}
     return render(request, 'detail.html', context)
+
+
+def create(request):
+    return render(request, 'make_notice.html')
 
 
 def createNotice(request):

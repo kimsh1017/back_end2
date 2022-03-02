@@ -74,6 +74,19 @@ button:focus {
   width: 100%;
 }
 
+.notice_table a {
+  text-decoration: none;
+  color: var(--black-color);
+}
+
+.notice_table th {
+  background-color: var(--grey-light-color);
+  height: 50px;
+}
+.notice_table tr {
+  height: 50px;
+}
+
 .notice_table h1 {
   padding: var(--padding);
 }
@@ -103,16 +116,32 @@ table {
   border-bottom: 1px solid black;
   border-right: 1px solid black;
   width: 200px;
+  padding: var(--padding);
 }
 .last {
   border-bottom: 1px solid black;
   width: 300px;
+  padding: var(--padding);
 }
 
-/* create notice */
+/* createAndPage */
 
-.create_notice {
-  padding: var(--padding);
+.createAndPage {
+  display: flex;
+}
+
+.createAndPage button {
+  margin: var(--padding);
+  background-color: var(--grey-light-color);
+  height: 30px;
+  border-radius: 4px;
+  color: var(--black-color);
+}
+
+.createAndPage li {
+  display: flex;
+  margin: var(--padding);
+  text-decoration: none;
 }
 
 /* mobile screen */

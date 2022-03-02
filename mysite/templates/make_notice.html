@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- css, js -->
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/detailStyle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/makeStyle.css' %}">
     <script src="https://kit.fontawesome.com/411ab0eefd.js" crossorigin="anonymous"></script>
     <script src="{% static "header.js" %}" defer></script>
 </head>
 <body>
+
     <!-- header -->
     <section class="header">
         <div class="logoAndTitle">
@@ -28,32 +28,17 @@
             <li>고객센터</li>
         </ul>
     </section>
-
-    <!-- notice information -->
-    <section class="info">
-        <a href="/mysite/readNotice/"><h1>공지사항</h1></a> 
-        <div class="subject">
-            제목 : {{ notice.subject }}
-        </div>
-        <div class="content">
-            {{ notice.content }}
-        </div>
-        <div class="writer">
-            작성자 : {{ notice.writer}}
-        </div>
-        <div class="create_date">
-            작성일시 : {{ notice.create_date }}
-        </div>
-        <!--<div>{{ notice.password }}</div> 비밀번호 보이게 하기-->
-    </section>
-    <section class="deleteAndUpdate">
-        <p>삭제나 수정을 원하면 비밀번호를 입력하세요</p>
-        <form action="update/" method="post">
+    <!-- create_notice -->
+    <section class="create_notice">
+        <p class="title">공지 등록</p>
+        <form action="/mysite/createNotice/" method="post">
             {% csrf_token %}
-            <p><input type="text" placeholder="password" name = "password"></p>
-            <p><input type="submit" name="delete"></p>
+            <p><input type="text" placeholder="제목" name = "subject"></p>
+            <p><textarea name="content" placeholder="내용"></textarea></p>
+            <p><input type="text" placeholder="작성자" name = "writer"></p>
+            <p><input type="text" placeholder="비밀번호" name = "password"></p>
+            <p><input type="submit" name="submit"></p>
         </form>
     </section>
-
 </body>
 </html>
