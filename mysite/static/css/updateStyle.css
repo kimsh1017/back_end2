@@ -66,6 +66,35 @@ button:focus {
   display: none;
 }
 
+/*update*/
+.update {
+  padding: var(--padding);
+}
+.update .title {
+  display: flex;
+  width: 100%;
+  background-color: var(--grey-light-color);
+  padding: var(--padding);
+}
+
+.update form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.update form input {
+  width: 100%;
+  height: 30px;
+  margin: calc(var(--padding) / 2) 0;
+}
+
+.update form textarea {
+  width: 100%;
+  height: 150px;
+  margin: calc(var(--padding) / 2) 0;
+}
+
 /* mobile screen */
 @media screen and (max-width: 600px) {
   .header {

@@ -29,19 +29,25 @@
         </ul>
     </section>
 
-    <!-- notice information -->
-
-    <section class="info">   
-        <h1>{{ notice.subject }}</h1>
-        <div>
-            {{ notice.content }}
-        </div>
-        <div>
-            {{ notice.create_date }}
-        </div>
-        <!--<div>{{ notice.password }}</div> 비밀번호 보이게 하기-->
-    </section>
+    <!-- update -->
     <section class="update">
+        <p class="title">공지수정</p>
+        <form action="update_notice/" method="post">
+            {% csrf_token %}
+            <p><input type="text" value="{{notice.subject}}" name = "subject"></p>
+            <p><textarea name="content">{{notice.content}}</textarea></p>
+            <p><input type="text" value="{{notice.writer}}" name = "writer"></p>
+            <p><input type="text" value="{{notice.password}}" name = "password"></p>
+            <p><input type="submit" name="submit"></p>
+        </form>
+
+        <form action="delete/" method="post">
+            {% csrf_token %}
+            <p><input type="submit" name="delete" value="삭제"></p>
+        </form>
+    </section>
+
+    <!-- <section class="update">
         <form action="update_notice/" method="post">
             {% csrf_token %}
             <p><input type="text" placeholder="subject" name = "subject"></p>
@@ -55,7 +61,7 @@
             {% csrf_token %}
             <p><input type="submit" name="delete" value="삭제"></p>
         </form>
-    </section>
+    </section> -->
 
 </body>
 </html>

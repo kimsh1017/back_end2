@@ -29,23 +29,24 @@
         </ul>
     </section>
 
-    <!-- notice information -->
+    <!-- info -->
     <section class="info">
-        <a href="/mysite/readNotice/"><h1>공지사항</h1></a> 
-        <div class="subject">
-            제목 : {{ notice.subject }}
-        </div>
-        <div class="content">
-            {{ notice.content }}
-        </div>
-        <div class="writer">
-            작성자 : {{ notice.writer}}
-        </div>
-        <div class="create_date">
-            작성일시 : {{ notice.create_date }}
-        </div>
-        <!--<div>{{ notice.password }}</div> 비밀번호 보이게 하기-->
+        <table align="center">
+            <a href="/mysite/readNotice/"><h1>공지사항</h1></a> 
+            <tr>
+                <th class="subject" colspan="2">{{ notice.subject }}</th>
+            </tr>
+            <tr>
+                <td class="writer">{{notice.writer}}</td>
+                <td class="create_date">{{notice.create_date}}</td>
+            </tr>
+            <tr>
+                <td class="content" colspan="2">{{notice.content}}</td>
+            </tr>
+        </table>
     </section>
+
+    <!-- deleteAndUpdate -->
     <section class="deleteAndUpdate">
         <p>삭제나 수정을 원하면 비밀번호를 입력하세요</p>
         <form action="update/" method="post">

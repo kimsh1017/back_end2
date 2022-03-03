@@ -73,7 +73,10 @@ button:focus {
   flex-direction: column;
   width: 100%;
 }
-
+.notice_table .go_notice {
+  display: flex;
+  justify-content: center;
+}
 .notice_table a {
   text-decoration: none;
   color: var(--black-color);
@@ -128,6 +131,7 @@ table {
 
 .createAndPage {
   display: flex;
+  justify-content: center;
 }
 
 .createAndPage button {
@@ -138,10 +142,13 @@ table {
   color: var(--black-color);
 }
 
-.createAndPage li {
+.createAndPage ul {
   display: flex;
-  margin: var(--padding);
+  flex-direction: row;
   text-decoration: none;
+}
+.createAndPage ul li {
+  margin: var(--padding);
 }
 
 /* mobile screen */
