@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Notice
 import ctypes
+from django.db.models import Q
 
 # Create your views here.
 
@@ -14,6 +15,13 @@ def index(request):
 
 def readNotice(request):
     notice_list = Notice.objects.order_by('-create_date')
+    # keyword
+    kw = request.GET.get('kw', '')
+    if len(kw):
+        notice_list = notice_list.filter(Q(subject__icontains=kw) |
+                                         Q(content__icontains=kw) |
+                                         Q(writer__icontains=kw))
+
     page = request.GET.get('page', '1')
     paginated_by = 10
 
@@ -36,6 +44,9 @@ def readNotice(request):
         start_number -= 1
 
     context = {'notice_list': notice_list, 'total_page': total_page, }
+    if len(kw):
+        context['kw'] = kw
+    print(context)
     return render(request, 'readNotice.html', context)
 
 

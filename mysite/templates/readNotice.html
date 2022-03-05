@@ -24,14 +24,20 @@
             <li>회사소개</li>
             <li>채용안내</li>
             <li>직원전용</li>
-            <li>공지사항</li>
+            <a href="/mysite/readNotice/"><li>공지사항</li></a>
             <li>고객센터</li>
         </ul>
     </section>
 
     <!--print notice list -->
     <section class="notice_table">
-        <a href="/mysite/readNotice/" class="go_notice"><h1>공지사항</h1></a>
+        <a href="/mysite/readNotice/" class="title"><h1>공지사항</h1></a>
+        <div class="search_form">
+            <form id="search_form" method="get" action="/mysite/readNotice/">
+                <input type="text" class="input_keword" name="kw" id="kw" value="{{kw}}">
+                <input type="submit" name="submit" value="검색">
+            </form>
+        </div>
         <table align="center">
             <tr>
                 <th class="num">번호</th>
@@ -49,7 +55,7 @@
                     </tr>
                 {% endfor %}
             {% else %}
-                <p>공지가 없습니다</p>
+                <p>일치하는 검색결과가 없습니다</p>
             {% endif %}
         </table>
     </section>

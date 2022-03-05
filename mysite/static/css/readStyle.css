@@ -65,6 +65,10 @@ button:focus {
 .header .bar {
   display: none;
 }
+.header a {
+  text-decoration: none;
+  color: var(--black-color);
+}
 
 /*notice table*/
 
@@ -73,7 +77,13 @@ button:focus {
   flex-direction: column;
   width: 100%;
 }
-.notice_table .go_notice {
+.notice_table .search_form {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  padding: var(--padding);
+}
+.notice_table .title {
   display: flex;
   justify-content: center;
 }

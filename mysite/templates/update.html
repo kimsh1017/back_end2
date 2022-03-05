@@ -24,7 +24,7 @@
             <li>회사소개</li>
             <li>채용안내</li>
             <li>직원전용</li>
-            <li>공지사항</li>
+            <a href="/mysite/readNotice/"><li>공지사항</li></a>
             <li>고객센터</li>
         </ul>
     </section>
@@ -46,22 +46,5 @@
             <p><input type="submit" name="delete" value="삭제"></p>
         </form>
     </section>
-
-    <!-- <section class="update">
-        <form action="update_notice/" method="post">
-            {% csrf_token %}
-            <p><input type="text" placeholder="subject" name = "subject"></p>
-            <p><textarea name="content" placeholder="content"></textarea></p>
-            <p><input type="text" placeholder="writer" name = "writer"></p>
-            <p><input type="text" placeholder="password" name = "password"></p>
-            <p><input type="submit" name="update" value="수정"></p>
-        </form>
-        
-        <form action="delete/" method="post">
-            {% csrf_token %}
-            <p><input type="submit" name="delete" value="삭제"></p>
-        </form>
-    </section> -->
-
 </body>
 </html>
