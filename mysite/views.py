@@ -46,7 +46,6 @@ def readNotice(request):
     context = {'notice_list': notice_list, 'total_page': total_page, }
     if len(kw):
         context['kw'] = kw
-    print(context)
     return render(request, 'readNotice.html', context)
 
 

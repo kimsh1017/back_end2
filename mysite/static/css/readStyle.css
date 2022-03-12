@@ -77,12 +77,6 @@ button:focus {
   flex-direction: column;
   width: 100%;
 }
-.notice_table .search_form {
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-  padding: var(--padding);
-}
 .notice_table .title {
   display: flex;
   justify-content: center;
@@ -139,12 +133,13 @@ table {
 
 /* createAndPage */
 
-.createAndPage {
+.bottom_container {
   display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
-.createAndPage button {
+.bottom_container .create button {
   margin: var(--padding);
   background-color: var(--grey-light-color);
   height: 30px;
@@ -152,15 +147,21 @@ table {
   color: var(--black-color);
 }
 
-.createAndPage ul {
+.bottom_container .page ul {
   display: flex;
   flex-direction: row;
   text-decoration: none;
 }
-.createAndPage ul li {
+.bottom_container .page ul li {
   margin: var(--padding);
 }
 
+.bottom_container .search_form {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  padding: var(--padding);
+}
 /* mobile screen */
 @media screen and (max-width: 600px) {
   .header {

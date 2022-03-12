@@ -32,12 +32,6 @@
     <!--print notice list -->
     <section class="notice_table">
         <a href="/mysite/readNotice/" class="title"><h1>공지사항</h1></a>
-        <div class="search_form">
-            <form id="search_form" method="get" action="/mysite/readNotice/">
-                <input type="text" class="input_keword" name="kw" id="kw" value="{{kw}}">
-                <input type="submit" name="submit" value="검색">
-            </form>
-        </div>
         <table align="center">
             <tr>
                 <th class="num">번호</th>
@@ -61,15 +55,25 @@
     </section>
     
     <!-- createAndPage -->
-    <section class="createAndPage">
-        <a href="create/"><button>공지 등록</button></a>
+    <section class="bottom_container">
+        <div class="create">
+            <a href="create/"><button>공지 등록</button></a>
+        </div>
 
-        <!-- 페이징 처리 시작 -->
-        <ul>
-            {% for page in total_page%}
-                <a href="/mysite/readNotice/?page={{page}}"><li>{{ page }}</li></a>
-            {% endfor %}
-        </ul>
+        <div class="page"> <!-- 페이징 처리 시작 -->
+            <ul>
+                {% for page in total_page%}
+                    <a href="/mysite/readNotice/?page={{page}}"><li>{{ page }}</li></a>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="search_form">
+            <form id="search_form" method="get" action="/mysite/readNotice/">
+                <input type="text" class="input_keword" name="kw" id="kw" value="{{kw}}">
+                <input type="submit" name="submit" value="검색">
+            </form>
+        </div>
     </section>
 </body>
 </html>
